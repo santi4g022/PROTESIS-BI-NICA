@@ -12,7 +12,7 @@ fsm maquina=IDDLE;
 int variable=valor;
 
 void setup(){
-
+    pines();
 }
 
 void loop(){
@@ -24,25 +24,55 @@ void loop(){
                 break;
             }
         case REMG:
-
-            maquina=FilAmpEMG;
-            break;
+            esperaboton();
+            if(BOTON_PRESIONADO==false){
+                
+                maquina=FilAmpEMG;
+                break;
+            }else{
+                maquina=IDDLE;
+                break;
+            }
         case FilAmpEMG:
+            esperaboton();
+            if(BOTON_PRESIONADO==false){
 
-            maquina=ADC;
-            break;
+                maquina=ADC;
+                break;
+            }else{
+                maquina=IDDLE;
+                break;
+            }  
         case ADC:
-            
-            maquina=Interpretacion;
-            break;
-        case Interpretacion:
-            
-            maquina=Servo;
-            break;
-        case Servo:
+            esperaboton();
+            if(BOTON_PRESIONADO==false){
 
-            maquina=IDDLE;
-            break;
+                maquina=Interpretacion;
+                break;
+            }else{
+                maquina=IDDLE;
+                break;
+            }
+        case Interpretacion:
+            esperaboton();
+            if(BOTON_PRESIONADO==false){
+
+                maquina=Servo;
+                break;
+            }else{
+                maquina=IDDLE;
+                break;
+            }
+        case Servo:
+            esperaboton();
+            if(BOTON_PRESIONADO==false){
+
+                maquina=REMG;
+                break;
+            }else{
+                maquina=IDDLE;
+                break;
+            }
     }
 
 }
