@@ -8,5 +8,9 @@
 #define BAUDRATE 9600
 #define TIMEREAD 100
 
+Servo servomotor;
+
 void pines();
 void esperaboton();
+void lectura();
+
