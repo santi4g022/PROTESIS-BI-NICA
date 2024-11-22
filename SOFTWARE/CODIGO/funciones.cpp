@@ -10,3 +10,11 @@ void pines(){
 void esperaboton(){
     bool BOTON_PRESIONADO = digitalRead(PINBTN);
 }
+
+void lectura(){
+    if(PINSENAL.analogRead()>0){
+        servomotor.write(100);
+    }else if(PINSENAL.analogRead()==0){
+        servomotor.write(0);
+    }
+}
