@@ -11,19 +11,18 @@ void esperaboton(){
     bool BOTON_PRESIONADO = digitalRead(PINBTN);
 }
 
-void lecturaEMG(){
-    int valorAct = analogRead(EMG_PIN);
+void lecturaEMG(bool lecEfectiva){
+    valorAct = analogRead(EMG_PIN);
     if(valorAct>UMBRAL){
-        actuador = true;
+        lecEfectiva = true;
+        return;
     }else{
-        actuador = false;
-    }
+        lecEfectiva = false;
+        return;
+    } 
 }
 
 void escrituraServo(){
-    if (actuador){
-        servomotor.write(POSMAX);
-    }else{
-        servomotor.write(POSMIN);
-    }
+    grados = map(valorAct,0,1023,POSMIN,POSMAX);
+    servomotor.write(grados);
 }

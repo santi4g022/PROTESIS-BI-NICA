@@ -1,9 +1,7 @@
 typedef enum{
     IDDLE,
-    REMG,
-    FilAmpEMG;
-    ADC;
-    Interpretacion;
+    LFAEMG,;
+    ADCeInterpretacion;
     Servo;
 }fsm;
 
@@ -23,42 +21,26 @@ void loop(){
                 maquina=REMG;
                 break;
             }
-        case REMG:
+        case LFAEMG:
             esperaboton();
             if(BOTON_PRESIONADO==false){
-                
-                maquina=FilAmpEMG;
+                delay(DELAY);
+                maquina=ADCeInterpretacion;
                 break;
             }else{
                 maquina=IDDLE;
                 break;
             }
-        case FilAmpEMG:
+        case ADCeInterpretacion:
             esperaboton();
             if(BOTON_PRESIONADO==false){
-
-                maquina=ADC;
-                break;
-            }else{
-                maquina=IDDLE;
-                break;
-            }  
-        case ADC:
-            esperaboton();
-            if(BOTON_PRESIONADO==false){
-
-                maquina=Interpretacion;
-                break;
-            }else{
-                maquina=IDDLE;
-                break;
-            }
-        case Interpretacion:
-            esperaboton();
-            if(BOTON_PRESIONADO==false){
-                lectura();
-                maquina=Servo;
-                break;
+                if(lecturaEMG()==true){
+                    maquina=Servo;
+                    break;
+                }else{
+                    maquina=LFAEMG;
+                    break;
+                }
             }else{
                 maquina=IDDLE;
                 break;
@@ -66,7 +48,7 @@ void loop(){
         case Servo:
             esperaboton();
             if(BOTON_PRESIONADO==false){
-                delay(100);
+                escrituraServo();
                 maquina=REMG;
                 break;
             }else{

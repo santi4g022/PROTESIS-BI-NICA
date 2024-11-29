@@ -20,3 +20,7 @@ void lecturaEMG();
 void escrituraServo()
 
 bool actuador;
+int valorAct;
+int grados;
+volatile unsigned long lasttime = 0;
+volatile unsigned long debounceDelay = 80;
