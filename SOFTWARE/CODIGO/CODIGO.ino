@@ -56,7 +56,7 @@ void loop(){
         case Interpretacion:
             esperaboton();
             if(BOTON_PRESIONADO==false){
-
+                lectura();
                 maquina=Servo;
                 break;
             }else{
@@ -66,7 +66,7 @@ void loop(){
         case Servo:
             esperaboton();
             if(BOTON_PRESIONADO==false){
-
+                delay(100);
                 maquina=REMG;
                 break;
             }else{

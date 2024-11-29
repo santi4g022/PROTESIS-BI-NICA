@@ -7,6 +7,7 @@
 #define SERVOPIN 5
 #define BAUDRATE 9600
 #define TIMEREAD 100
+#define UMBRAL 100
 
 Servo servomotor;
 

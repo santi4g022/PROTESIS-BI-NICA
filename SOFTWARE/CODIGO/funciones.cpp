@@ -12,9 +12,9 @@ void esperaboton(){
 }
 
 void lectura(){
-    if(PINSENAL.analogRead()>0){
+    if(PINSENAL.analogRead()>UMBRAL){
         servomotor.write(100);
-    }else if(PINSENAL.analogRead()==0){
+    }else if(PINSENAL.analogRead()==UMBRAL){
         servomotor.write(0);
     }
 }
