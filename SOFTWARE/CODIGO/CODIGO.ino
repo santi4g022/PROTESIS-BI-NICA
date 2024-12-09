@@ -1,3 +1,4 @@
+//DECLARACIÓN DE ESTADOS
 typedef enum{
     IDDLE,
     LFAEMG,
@@ -15,12 +16,14 @@ void setup(){
 
 void loop(){
     switch(maquina){
+        //ESTADO DE REPOSO
         case IDDLE:
             esperaboton();
             if(BOTON_PRESIONADO){
                 maquina= LFAEMG;
                 break;
             }
+        //ESTADO DE LECTURA, FILTRADO Y AMPLIFICACION DE SEÑAL EMG
         case LFAEMG:
             esperaboton();
             if(BOTON_PRESIONADO==false){
@@ -31,6 +34,7 @@ void loop(){
                 maquina=IDDLE ;
                 break;
             }
+        //ESTADO DE CONVERSIÓN ADC E INTERPRETACIÓN DEL CÓDIGO
         case ADCeInterpretacion:
             esperaboton();
             if(BOTON_PRESIONADO==false){
@@ -45,6 +49,7 @@ void loop(){
                 maquina=IDDLE;
                 break;
             }
+        //ESTADO DE ESCRITURA AL SERVO
         case Servo:
             esperaboton();
             if(BOTON_PRESIONADO==false){

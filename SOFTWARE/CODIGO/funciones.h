@@ -1,6 +1,7 @@
 #ifndef FUNCIONES_H
 #define FUNCIONES_H
 
+//DECLARACION DE PMACROS
 #include <Servo.h>
 #define PINSENAL A0
 #define PINBTN 3
@@ -12,13 +13,16 @@
 #define POSMIN 0
 #define DELAY 250
 
+//VARIABLE DEL SERVO
 Servo servomotor;
 
+//CABECERAS DE FUNCIONES
 void pines();
 void esperaboton();
 void lecturaEMG();
 void escrituraServo();
 
+//VARIABLES
 int valorAct;
 int grados;
 volatile unsigned long lasttime = 0;
