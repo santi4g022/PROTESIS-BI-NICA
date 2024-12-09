@@ -1,13 +1,13 @@
 typedef enum{
     IDDLE,
-    LFAEMG,;
-    ADCeInterpretacion;
-    Servo;
+    LFAEMG,
+    ADCeInterpretacion,
+    Servo
 }fsm;
 
-fsm maquina=IDDLE;
+#include "funciones.h"
 
-int variable=valor;
+fsm maquina=IDDLE;
 
 void setup(){
     pines();
@@ -18,7 +18,7 @@ void loop(){
         case IDDLE:
             esperaboton();
             if(BOTON_PRESIONADO){
-                maquina=REMG;
+                maquina= LFAEMG;
                 break;
             }
         case LFAEMG:
@@ -28,7 +28,7 @@ void loop(){
                 maquina=ADCeInterpretacion;
                 break;
             }else{
-                maquina=IDDLE;
+                maquina=IDDLE ;
                 break;
             }
         case ADCeInterpretacion:

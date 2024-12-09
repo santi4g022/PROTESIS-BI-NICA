@@ -12,7 +12,7 @@ void esperaboton(){
 }
 
 void lecturaEMG(bool lecEfectiva){
-    valorAct = analogRead(EMG_PIN);
+    valorAct = analogRead(PINSENAL);
     if(valorAct>UMBRAL){
         lecEfectiva = true;
         return;

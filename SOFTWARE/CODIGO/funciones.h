@@ -17,10 +17,11 @@ Servo servomotor;
 void pines();
 void esperaboton();
 void lecturaEMG();
-void escrituraServo()
+void escrituraServo();
 
-bool actuador;
 int valorAct;
 int grados;
 volatile unsigned long lasttime = 0;
 volatile unsigned long debounceDelay = 80;
+
+#endif
