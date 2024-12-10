@@ -3,24 +3,24 @@
 
 //DECLARACION DE PMACROS
 #include <Servo.h>
-#define PINSENAL A0
-#define PINBTN 3
-#define SERVOPIN 9
-#define BAUDRATE 9600
-#define TIMEREAD 100
-#define UMBRAL 100
-#define POSMAX 170
-#define POSMIN 0
-#define DELAY 250
+#define PINSENAL    A0
+#define PINBTN      2
+#define SERVOPIN    3
+#define BAUDRATE    9600
+#define TIMEREAD    100
+#define UMBRAL      100
+#define POSMAX      170
+#define POSMIN      0
+#define DELAY       250
 
 //VARIABLE DEL SERVO
 Servo servomotor;
 
 //CABECERAS DE FUNCIONES
 void pines();
-void esperaboton();
 void lecturaEMG();
 void escrituraServo();
+void onOffIddle();
 
 //VARIABLES
 int valorAct;

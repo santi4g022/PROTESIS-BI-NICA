@@ -3,14 +3,23 @@
 
 //DECLARACIÓN DE PINES
 void pines(){
+    attachInterrupt(digitalPinToInterrupt(PINBTN),onOffIddle(),FALLING);
     pinMode(PINSENAL, INPUT);
     pinMode(PINBTN, INPUT_PULLUP);
     servomotor.attach(SERVOPIN);
 }
 
-//ESPERA PARA EL BOTON IDDLE
-void esperaboton(){
-    bool BOTON_PRESIONADO = digitalRead(PINBTN);
+//CAMBIA ESTADO A IDDLE
+void onOffIddle(){
+    if (millis() - lasttime > debounceDelay) {
+    if (maquina==IDDLE){
+        maquina = LFAEMG;
+    }else{
+        maquina = IDDLE;  
+    }
+    lasttime = millis();
+  }
+  break;
 }
 
 //LEE Y ADMITE LA SEÑAL SI ES EFECTIVA
